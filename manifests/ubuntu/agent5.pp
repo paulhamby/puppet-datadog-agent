@@ -27,8 +27,9 @@ class datadog_agent::ubuntu::agent5(
   ensure_packages(['apt-transport-https'])
 
   if !$skip_apt_key_trusting {
-    ::datadog_agent::ubuntu::install_key { [$apt_key]:
-      before  => Apt::Source['datadog'],
+    $key = {
+      'id' => $apt_key,
+      'server' => 'hkp://keyserver.ubuntu.com:80'
     }
   }
 
@@ -65,8 +66,9 @@ class datadog_agent::ubuntu::agent5(
     location => $location,
     release  => $release,
     repos    => $repos,
+    key      => $key,
     require  => Package['apt-transport-https'],
-    notify   => [Exec['datadog_apt-get_remove_agent6'],Exec['apt_update']],
+    notify   => Exec['datadog_apt-get_remove_agent6'],
   }
 
   package { 'datadog-agent-base':
