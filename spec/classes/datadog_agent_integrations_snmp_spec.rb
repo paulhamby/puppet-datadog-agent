@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'datadog_agent::integrations::snmp' do
   let(:conf_dir) { '/etc/dd-agent/conf.d' }
   let(:dd_user) { 'dd-agent' }
-  let(:dd_group) { 'root' }
+  let(:dd_group) { 'dd-agent' }
   let(:dd_package) { 'datadog-agent' }
   let(:dd_service) { 'datadog-agent' }
   let(:conf_file) { "#{conf_dir}/snmp.yaml" }

@@ -14,7 +14,7 @@ describe 'datadog_agent::integrations::http_check' do
         let(:conf_dir) { '/etc/datadog-agent/conf.d' }
       end
       let(:dd_user) { 'dd-agent' }
-      let(:dd_group) { 'root' }
+      let(:dd_group) { 'dd-agent' }
       let(:dd_package) { 'datadog-agent' }
       let(:dd_service) { 'datadog-agent' }
       let(:conf_file) { "#{conf_dir}/http_check.yaml" }

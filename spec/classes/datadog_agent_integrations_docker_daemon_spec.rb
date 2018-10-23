@@ -14,7 +14,7 @@ describe 'datadog_agent::integrations::docker_daemon' do
         let(:conf_dir) { '/etc/datadog-agent/conf.d' }
       end
       let(:dd_user) { 'dd-agent' }
-      let(:dd_group) { 'root' }
+      let(:dd_group) { 'dd-agent' }
       let(:dd_package) { 'datadog-agent' }
       let(:dd_service) { 'datadog-agent' }
       if enabled

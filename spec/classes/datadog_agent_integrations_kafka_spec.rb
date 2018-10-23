@@ -15,7 +15,7 @@ describe 'datadog_agent::integrations::kafka' do
       end
 
       let(:dd_user) { 'dd-agent' }
-      let(:dd_group) { 'root' }
+      let(:dd_group) { 'dd-agent' }
       let(:dd_package) { 'datadog-agent' }
       let(:dd_service) { 'datadog-agent' }
       let(:conf_file) { "#{conf_dir}/kafka.yaml" }

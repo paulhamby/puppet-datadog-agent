@@ -8,7 +8,7 @@ describe 'datadog_agent::integrations::logs' do
     }}
     let(:conf_dir) { '/etc/datadog-agent/conf.d' }
     let(:dd_user) { 'dd-agent' }
-    let(:dd_group) { 'root' }
+    let(:dd_group) { 'dd-agent' }
     let(:dd_package) { 'datadog-agent' }
     let(:dd_service) { 'datadog-agent' }
     let(:conf_file) { "#{conf_dir}/logs.yaml" }

@@ -16,8 +16,7 @@ describe 'datadog_agent::ubuntu::agent5' do
   end
 
   # it should install the mirror
-  it { should_not contain_datadog_agent__ubuntu__install_key('935F5A436A5A6E8788F0765B226AE980C7A7DA52') }
-  it { should contain_datadog_agent__ubuntu__install_key('A2923DFF56EDA6E76E55E492D3A80E30382E94DE') }
+  it { should contain_apt__key('Add key: A2923DFF56EDA6E76E55E492D3A80E30382E94DE from Apt::Source datadog') }
   it do
     should contain_file('/etc/apt/sources.list.d/datadog.list')\
       .that_notifies('exec[apt_update]')
@@ -26,7 +25,7 @@ describe 'datadog_agent::ubuntu::agent5' do
 
   # it should install the packages
   it do
-    should contain_package('apt-transport-https')\
+    should contain_exec('apt-transport-https')\
       .that_comes_before('file[/etc/apt/sources.list.d/datadog.list]')
   end
   it do
@@ -79,8 +78,7 @@ describe 'datadog_agent::ubuntu::agent6' do
   end
 
   # it should install the mirror
-  it { should_not contain_datadog_agent__ubuntu__install_key('935F5A436A5A6E8788F0765B226AE980C7A7DA52') }
-  it { should contain_datadog_agent__ubuntu__install_key('A2923DFF56EDA6E76E55E492D3A80E30382E94DE') }
+  it { should contain_apt__key('Add key: A2923DFF56EDA6E76E55E492D3A80E30382E94DE from Apt::Source datadog6') }
 
   it do
     should contain_file('/etc/apt/sources.list.d/datadog6.list')\
@@ -90,7 +88,7 @@ describe 'datadog_agent::ubuntu::agent6' do
 
   # it should install the packages
   it do
-    should contain_package('apt-transport-https')\
+    should contain_exec('apt-transport-https')\
       .that_comes_before('file[/etc/apt/sources.list.d/datadog6.list]')
   end
   it do
