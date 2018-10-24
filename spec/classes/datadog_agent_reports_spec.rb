@@ -8,6 +8,7 @@ describe 'datadog_agent::reports' do
         hostname_extraction_regex: nil,
         puppetmaster_user: 'puppet',
         dogapi_version: 'installed',
+        datadog_site: 'datadoghq.com',
       }
     end
     ALL_OS.each do |operatingsystem|
@@ -60,7 +61,8 @@ describe 'datadog_agent::reports' do
         api_key: 'notanapikey',
         hostname_extraction_regex: nil,
         puppetmaster_user: 'puppet',
-        dogapi_version: '1.2.2'
+        dogapi_version: '1.2.2',
+        datadog_site: 'datadoghq.com',
       }
     end
     describe "datadog_agent class dogapi version override" do
